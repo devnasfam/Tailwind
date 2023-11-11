@@ -15,7 +15,7 @@
         <title>Tailwind CSS</title>
     </head>
     <body class="w-screen max-h-auto bg-sky-50 bg-opacity-60 dark:bg-gray-900 transition-color duration-300 overflow-x-hidden">
-        <header class="fixed top-0 inset-x-0 z-50 w-full h-auto p-3 bg-black/10 flex items-center justify-between text-slate-700 border-x-0 border-t-0 dark:text-slate-300 backdrop-blur-md dark:backdrop-blur-lg border dark:border-slate-700 shadow-sm dark:shadow-0">
+        <header class="fixed top-0 inset-x-0 z-50 w-full h-auto p-3 bg-black/10 flex items-center justify-between text-slate-700 border-x-0 border-t-0 dark:text-slate-300 backdrop-blur-md dark:backdrop-blur-lg border dark:border-slate-700 shadow-sm dark:shadow-0 transition-all duration-300">
         <div class="flex items-center justify-center">
         <div class="w-20 h-12 bg-blue-800 scale-50 p-2 " style="background:url(https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg); background-size:cover; background-position:center;"></div>
         <div class="mx-2 font-semibold tracking-wider text-slate-100 text-shadow-lg dark:text-slate-300 text-xl ml-0 pl-0 truncate capitalize">tailwind cSS </div>
@@ -26,16 +26,17 @@
           <li class="px-3 py-1 text-white font-medium tracking-wide text-md bg-blue-500 rounded-md"><i class="fa fa-home"></i> <a href="#">Home</a></li>
           <li class="px-3 py-1 text-white font-medium tracking-wide text-md"><i class="fa fa-github"></i> <a href="#">Projects</a></li>
           <li class="px-3 py-1 text-white font-medium tracking-wide text-md"><i class="fa fa-user"></i> <a href="#">About</a></li>
+          <li><div class="modes w-[35px] h-[35px] p-3 bg-white rounded-xl mr-2 flex items-center justify-center transition-all duration-500 cursor-pointer">
+         <i class="fa fa-moon text-slate-700 transition-all duration-500" id="mode-i"></i>
+        </div></li>
         </div>
-        
         </header>
         
         <!-- Menu -->
         <nav class="fixed z-80 w-0 pt-10 overflow-hidden pr-0 transition-all duration-300 h-full top-0 left-0 bg-[#e5f3fd] backdrop-blur-lg dark:bg-black/50 lg:max-2xl:hidden" style="position:fixed;top:0;z-index:80;">
-        
         <div class="w-full p-2 py-1.5 bg-slate-600 mb-3 flex flex-row items-center">
         <div class="modes w-[35px] h-[35px] p-3 bg-white rounded-xl mr-2 flex items-center justify-center transition-all duration-500 cursor-pointer">
-         <i class="fa fa-moon text-slate-700 transition-all duration-500" id="mode-i"></i>
+         <i class="fa fa-moon text-slate-700 transition-all duration-500" id="mode-i2"></i>
         </div>
          <div class="text-slate-200" id="mode-text"></div>
         </div>
@@ -50,7 +51,6 @@
          <li class="w-full px-2 bg-black/30 dark:bg-white/30 text-white py-2 pl-6 my-2 transform transition active:scale-95 flex items-center nowrap shrink-0 border-l-[3px] border-blue-500"><i class="fa fa-user pr-1"></i> About</li>
         </ul>
         </nav>
-        
         <div class="w-full h-8 p-5 bg-blue-500 fixed top-0 z-20"></div>
         
          <div class="max-w-[80%] h-auto overflow-hidden mt-28 text-left text-slate-600 bg-white dark:text-slate-300 dark:bg-gray-800 border dark:border-slate-700 shadow-sm dark:shadow-0 rounded-xl mx-auto mt-12 flex flex-col items-center md:w-[70%] lg:w-[60%] xl:w-[50%] lg:p-6  leading-relaxed lg:max-2xl:grid lg:max-2xl:grid-cols-2 lg:max-2xl:gap-5">
@@ -66,9 +66,9 @@
           </div>
         </div>
         
-        <div class="w-[80%] rounded-xl overflow-hidden mx-auto mt-10 md:w-[70%] lg:w-[60%] xl:w-[50%] transition ease-in-out delay-100 transform hover:scale-95 hover:shadow-md text-slate-600 bg-white dark:text-slate-300 dark:bg-gray-800 border dark:border-slate-700 shadow-sm dark:shadow-0 flex flex-col items:center lg:flex-row">
+        <div class="w-[80%] rounded-xl overflow-hidden mx-auto mt-10 md:w-[70%] lg:w-[60%] xl:w-[50%] transition ease-in-out delay-100 transform hover:scale-95 hover:shadow-md text-slate-600 bg-white dark:text-slate-300 dark:bg-gray-800 border dark:border-slate-700 shadow-sm dark:shadow-0 flex flex-col items:center lg:flex-row group">
          <div class="flex">
-          <img src="https://source.unsplash.com/random" class="w-full h-44 object-cover md:h-48 lg:h-58 lg:max-2xl:w-[500px] lg:max-2xl:h-[240px]" loading="eager" alt="4K wallpaper">
+          <img src="https://source.unsplash.com/random" class="w-full h-44 object-cover md:h-48 lg:h-58 lg:max-2xl:w-[500px] lg:max-2xl:h-[240px] transition-all duration-300 delay-200 group-hover:scale-110" loading="eager" alt="4K wallpaper">
          </div>
          <div class="w-full lg:hidden">
           <p class="px-3 pt-4 pb-2 text-blue-400 font-medium tracking-wider">Learning Tailwind</p>
@@ -151,11 +151,9 @@ $("#mode-text").text(isDark?"DarkMode":"LightMode");
 let isTog = true;
 $(".modes").on("click", () => {
   isTog ?
-    ($("#mode-i").addClass("fa-sun"),
-      $("#mode-i").removeClass("fa-moon"),
+    ($("#mode-i").addClass("fa-sun").removeClass("fa-moon"),$("#mode-i2").addClass("fa-sun").removeClass("fa-moon"),
       isTog = !isTog):
-    ($("#mode-i").removeClass("fa-sun"),
-      $("#mode-i").addClass("fa-moon"),
+    ($("#mode-i").removeClass("fa-sun").addClass("fa-moon"),$("#mode-i2").removeClass("fa-sun").addClass("fa-moon"),
       isTog = !isTog);
 document.documentElement.classList.toggle("dark");
   $("#mode-text").text(isTog?"LightMode":"DarkMode");
@@ -168,31 +166,39 @@ yes = 1;
 $("i.fa-bars").on("click",(ev)=>{
  yes?(
     $("nav").css({"width":"240px","box-shadow":"0 0 0 9999px rgba(0,0,0,.7)"}),
-    $("body").css({"overflow":"hidden"}),
+    $("body").css({"overflow":"hidden","margin-left":"240px"}),$("header").css({"margin-left":"240px"}),
      yes=!yes):
     (
      $("nav").css({"width":0,"box-shadow":"0 0 0 0 rgba(0,0,0,0)"}),
-     $("body").css({"overflow":"auto"}),
+     $("body").css({"overflow":"auto","margin-left":"0px"}),$("header").css({"margin-left":"0px"}),
      yes=!yes
     );
        ev.stopPropagation(); 
        ev.preventDefault();
      });
-     
+     try{
+         $("i.fa-bars").on("click",(ev)=>{
+             navigator.vibrate(20);
+             ev.preventDefault();
+         });
+     }catch(e){
+         console.log("Vibration:",e);
+     }
    window.addEventListener("click",(e)=>{
 if(!e.target.closest('nav')){
   $("nav").css({"width":0,"box-shadow":"0 0 0 0 rgba(0,0,0,0)"});
-  $("body").css({"overflow":"auto"});
+  $("body").css({"overflow":"auto","margin-left":"0px"});
+  $("header").css({"margin-left":"0px"});
     yes=true;
      }
      });
         </script>
         <style>
         *{
-    font-family:"Poppins", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior:smooth;
-}
+            font-family:"Poppins", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior:smooth;
+          }
         </style>
     </body>
-          </html>
+</html>
